@@ -46,4 +46,6 @@ services:
       - /proc/:/host/proc
       - /cgroup/:/host/sys/fs/cgroup
     privileged: true
+    labels:
+      - convox.agent=true
 ```

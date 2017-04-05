@@ -8,6 +8,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /proc/:/host/proc
       - /cgroup/:/host/sys/fs/cgroup
+    ports:
+      - 8125/udp
     privileged: true
     labels:
       - convox.agent=true

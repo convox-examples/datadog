@@ -35,6 +35,7 @@ The [Datadog-AWS ECS Integration](http://docs.datadoghq.com/integrations/ecs/) g
 Convox removes all this complexity by deploying the agent as an app with a very simple `docker-compose.yml` manifest:
 
 ```yaml
+
 version: '2'
 services:
   agent:
@@ -45,7 +46,27 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /proc/:/host/proc
       - /cgroup/:/host/sys/fs/cgroup
+    ports:
+      - 8125/udp
     privileged: true
     labels:
       - convox.agent=true
+```
+
+## Custom Metrics
+
+In addition to collecting instance and container metrics, you can write custom metrics to the local Datadog agent with a statsd client over UDP. An example Ruby producer is:
+
+```ruby
+require "sinatra"
+require "datadog/statsd"
+
+agent  = `ip route list match 0/0 | awk '{print $3}'`.chomp
+statsd = Datadog::Statsd.new(agent, 8125)
+
+get "/health" do
+  UDPSocket.new.send 'page.views:1|c', 0, agent, 8125
+  statsd.increment('health')
+  status 200
+end
 ```

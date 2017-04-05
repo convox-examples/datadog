@@ -4,6 +4,8 @@ services:
     image: datadog/docker-dd-agent:latest
     environment:
      - API_KEY
+    ports:
+      - 8125/udp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /proc/:/host/proc

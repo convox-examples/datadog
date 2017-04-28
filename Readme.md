@@ -13,7 +13,6 @@ $ cd dd-agent
 $ convox apps create
 $ convox env set API_KEY=<your api key>
 $ convox deploy
-$ convox scale agent --count=3 --cpu=10 --memory=128
 
 # monitor the app
 $ convox logs

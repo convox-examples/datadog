@@ -4,14 +4,15 @@ services:
     image: datadog/docker-dd-agent:latest
     environment:
      - API_KEY
-    ports:
-      - 8125/udp
+     - DD_APM_ENABLED=true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /proc/:/host/proc
       - /cgroup/:/host/sys/fs/cgroup
     ports:
       - 8125/udp
+      - 8126/tcp
     privileged: true
     labels:
       - convox.agent=true
+      - convox.balancer=false

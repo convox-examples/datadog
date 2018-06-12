@@ -1,14 +1,14 @@
 version: '2'
 services:
   agent:
-    image: datadog/docker-dd-agent:latest
+    image: datadog/agent:latest
     environment:
-     - API_KEY
+     - DD_API_KEY
      - DD_APM_ENABLED=true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /proc/:/host/proc
-      - /cgroup/:/host/sys/fs/cgroup
+      - /proc/:/host/proc/
+      - /cgroup/:/host/sys/fs/cgroup/
     ports:
       - 8125/udp
       - 8126/tcp

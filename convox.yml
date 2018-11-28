@@ -1,18 +1,22 @@
 services:
   agent:
-    agent:
+    dd-agent:
       ports:
         - 8125/udp
         - 8126/tcp
     image: datadog/agent:latest
     environment:
+      - DD_AC_EXCLUDE="name:dd-agent"  # prevent the agent from collecting and sending its own logs
       - DD_API_KEY
       - DD_APM_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
+      - DD_LOGS_ENABLED=true
     privileged: true
     scale:
       cpu: 128
       memory: 128
     volumes:
       - /cgroup/:/host/sys/fs/cgroup/
+      - /opt/datadog-agent/run:/opt/datadog-agent/run:rw  # avoid losing logs from restarts by storing last line on host
       - /proc/:/host/proc/
       - /var/run/docker.sock:/var/run/docker.sock

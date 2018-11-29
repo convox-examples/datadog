@@ -1,6 +1,6 @@
 services:
-  agent:
-    dd-agent:
+  dd-agent:
+    agent:
       ports:
         - 8125/udp
         - 8126/tcp

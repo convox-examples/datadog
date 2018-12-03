@@ -8,6 +8,7 @@ services:
     environment:
       - DD_API_KEY
       - DD_APM_ENABLED=true
+      - DD_APM_ANALYZED_SPANS="mighty-v2-backend|django.request=1"
     privileged: true
     scale:
       cpu: 128

@@ -11,6 +11,7 @@ services:
       - DD_API_KEY
       - DD_APM_ANALYZED_SPANS
       - DD_APM_ENABLED
+      - DD_PROCESS_AGENT_ENABLED
     privileged: true
     scale:
       cpu: 128

@@ -13,6 +13,7 @@ $ cd dd-agent
 $ convox apps create
 $ convox env set DD_API_KEY=<your api key>
 $ convox deploy
+```
 
 ## Custom Metrics
 

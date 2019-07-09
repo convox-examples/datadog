@@ -1,5 +1,5 @@
 services:
-  agent:
+  datadog:
     agent:
       ports:
         - 8125/udp
@@ -8,6 +8,8 @@ services:
     environment:
       - DD_API_KEY
       - DD_APM_ENABLED=true
+      - DD_PROCESS_AGENT_ENABLED=true
+      - DD_AC_EXCLUDE="name:datadog-agent name:ecs-agent"
     privileged: true
     scale:
       cpu: 128

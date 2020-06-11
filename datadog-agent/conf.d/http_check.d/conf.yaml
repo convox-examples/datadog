@@ -1,0 +1,12 @@
+init_config:
+
+instances:
+
+  - name: Admin
+    url: https://go.mighty.com/backend/command
+
+  - name: FunSoft
+    url: https://go.mighty.com/
+
+  - name: Registry
+    url: https://app.mighty.com/

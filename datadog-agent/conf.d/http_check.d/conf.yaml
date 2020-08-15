@@ -4,9 +4,12 @@ instances:
 
   - name: Admin
     url: https://go.mighty.com/backend/command
+    tls_ignore_warning: true
 
   - name: FunSoft
     url: https://go.mighty.com/
+    tls_ignore_warning: true
 
   - name: Registry
     url: https://app.mighty.com/
+    tls_ignore_warning: true

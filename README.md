@@ -1,4 +1,4 @@
-# DataDog Agent App
+# examples/datadog
 
 Deploy the DataDog Agent and API key as a standard Convox app.
 

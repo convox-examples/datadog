@@ -12,11 +12,13 @@ services:
       - DD_APM_ANALYZED_SPANS
       - DD_APM_ENABLED
       - DD_PROCESS_AGENT_ENABLED
+      - DD_SYSTEM_PROBE_ENABLED
     privileged: true
     scale:
       cpu: 128
       memory: 128
     volumes:
-      - /sys/fs/cgroup/:/host/sys/fs/cgroup/
       - /proc/:/host/proc/
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup/
+      - /sys/kernel/debug:/sys/kernel/debug
       - /var/run/docker.sock:/var/run/docker.sock

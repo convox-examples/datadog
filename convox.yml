@@ -13,6 +13,9 @@ services:
       - DD_APM_ENABLED
       - DD_PROCESS_AGENT_ENABLED
       - DD_SYSTEM_PROBE_ENABLED
+      - RABBITMQ_HOST
+      - RABBITMQ_USER
+      - RABBITMQ_PASSWORD
     privileged: true
     scale:
       cpu: 128

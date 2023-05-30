@@ -7,4 +7,6 @@ RUN curl -OLs https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_
 
 COPY datadog-agent /
 
-CMD ["dockerize", "-template", "/conf.d/postgres.d/conf.yaml.tmpl:/conf.d/postgres.d/conf.yaml", "/init"]
+CMD ["dockerize", "-template", "/conf.d/postgres.d/conf.yaml.tmpl:/conf.d/postgres.d/conf.yaml", \
+                  "-template", "/conf.d/rabbitmq.d/conf.yaml.tmpl:/conf.d/rabbitmq.d/conf.yaml", \
+     "/init"]

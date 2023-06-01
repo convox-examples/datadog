@@ -1,0 +1,20 @@
+## Mighty Summary
+#
+# AWS RabbitMQ doesn't support Prometheus, so we're using the management plugin with
+# the default basic auth.
+#
+# See https://docs.datadoghq.com/integrations/rabbitmq
+# and the sample yaml file at
+# https://github.com/DataDog/integrations-core/blob/master/rabbitmq/datadog_checks/rabbitmq/data/conf.yaml.example .
+#
+# For a basic configuration, see
+# https://www.datadoghq.com/blog/monitoring-rabbitmq-performance-with-datadog/ .
+##
+
+init_config:
+
+instances:
+  - rabbitmq_api_url: {{ .Env.RABBITMQ_API_URL }}
+    username: {{ .Env.RABBITMQ_USER }}
+    password: {{ .Env.RABBITMQ_PASSWORD }}
+    service: rabbitmq
